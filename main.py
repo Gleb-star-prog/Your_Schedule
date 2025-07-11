@@ -10,9 +10,7 @@ keyboard = types.InlineKeyboardMarkup()
 def get_text_messages(message):
 
     if message.text == '/start':
-        bot.send_message(message.from_user.id, 'Привет')
-        bot.send_message(message.from_user.id, 'Я бот "твое расписание"')
-        bot.send_message(message.from_user.id, 'Ты сможешь во мне создавать свое расписание')
+        bot.send_message(message.from_user.id, 'Привет \n Я бот "твое расписание" \n Ты сможешь во мне создавать свое расписание')
     elif message.text == 'Начнем':
         key_schedule1 = types.InlineKeyboardButton(text='расписание1', callback_data='schedule')
         keyboard.add(key_schedule1)
@@ -30,11 +28,9 @@ def get_text_messages(message):
         keyboard.add(key_schedule5)
         bot.send_message(message.from_user.id, text='Хорошо \n выбери ячейку', reply_markup=keyboard)
     elif message.text == '/help':
-        bot.send_message(message.from_user.id, 'чтобы начать создовать свое расписание')
-        bot.send_message(message.from_user.id, 'нужно написать "Начнем"')
+        bot.send_message(message.from_user.id, 'чтобы начать создовать свое расписание \n нужно написать "Начнем"')
     else:
-        bot.send_message(message.from_user.id, 'я тебя не понял')
-        bot.send_message(message.from_user.id, 'напиши "/help"')
+        bot.send_message(message.from_user.id, 'я тебя не понял \n напиши "/help"')
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_worker(call):
